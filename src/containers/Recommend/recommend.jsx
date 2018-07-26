@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import HeaderTop from '../../components/HeaderTop/headertop'
 //import Footer from '../../components/Footer/footer'
-import p from   './images/01.png'
+//import p from   './images/01.png'
 import './recommend.less'
 import 'swiper/dist/css/swiper.min.css'
 import Swiper from 'swiper'
@@ -43,6 +43,8 @@ import {
          topicList:this.props.topicList,
          cateList:this.props.cateList,
        })
+
+
   }
    componentDidUpdate(){
      //单例对象可以实现不重复创建，加判断
@@ -77,8 +79,26 @@ import {
            eventPassthrough:'vertical'
          })
        }
-    }
+
+/*
+     let time=moment.duration(this.props.flashSaleIndexVO.remainTime)
+     const timer=setInterval(()=>{
+       time-=1000
+       if(time<=0){
+         clearInterval(timer)
+       }
+       time=moment.duration(moment.duration(this.props.flashSaleIndexVO.remainTime))
+     },1000)
+*/
+
+
+   }
     render(){
+      //限时购倒计时时间
+     let time=moment.duration(this.props.flashSaleIndexVO.remainTime)
+    //  console.log(time);
+
+
     let {focuslist,newItemList,flashSaleIndexVO,topicList,cateList}=this.props
     if(!focuslist) focuslist = []
     if (!newItemList) newItemList=[]
@@ -113,7 +133,7 @@ import {
             </div>
             <div className="swiper-pagination"></div>
           </div>
-      <div className="tip">
+            <div className="tip">
         {
           this.props.policyDescList.map((policy,index)=>(
             <div key={index}>
@@ -124,7 +144,7 @@ import {
 
         }
     </div>
-      <div className="shop_pinpai">
+             <div className="shop_pinpai">
 
         <div className="hd">
           <span>品牌制造商直供<i className="iconfont icon-shouqijiantouxiao-copy"></i></span>
@@ -144,7 +164,7 @@ import {
         </ul>
 
       </div>
-      <div className="new">
+            <div className="new">
         <div className="new_title">
           <div className="new_text">
             <div className="shoufa">新品首发</div>
@@ -177,7 +197,7 @@ import {
           </div>
         </div>
       </div>
-      <div className="hot">
+          <div className="hot">
         <div className="new_title">
           <div className="new_text">
             <div className="shoufa">人气推荐 好物精选</div>
@@ -217,11 +237,11 @@ import {
             <span>严选限时购</span>
           </div>
           <div className=" Countdown_time">
-            <span className="hour" >66</span>
+            <span className="hour" >{time._data.hours}</span>
             <span className="black">:</span>
-            <span className="min" >55</span>
+            <span className="min" >{time._data.minutes}</span>
             <span className="black">:</span>
-            <span className="second" >33</span>
+            <span className="second" >{time._data.seconds}</span>
           </div>
           <div className="predict_time">
             <span className="up_time">下一场</span>

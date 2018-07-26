@@ -23,7 +23,7 @@ import './firstscreen.less'
 
 
    gotoMsite=()=>{
-      this.props.history.push('/msite')
+      this.props.history.push('/recommend')
    }
 }
 

@@ -96,7 +96,7 @@ const receive_popularitemlists=(popularItemList)=>({type:RECEIVE_POPULARITEMLIST
 export const getPopularItemList=()=>{
   return async dispatch=>{
     const result=await reqMsiteHot()
-    console.log('getPopularItemList',result);
+   // console.log('getPopularItemList',result);
     if(result.code===0){
       const popularItemList=result.data
       dispatch(receive_popularitemlists(popularItemList))
@@ -108,7 +108,7 @@ const receive_flashsaleindexvo=(flashSaleIndexVO)=>({type:RECEIVE_FLASHSALEINDEX
 export  const getFlashSaleIndexVO=()=>{
   return async dispatch=>{
     const result=await reqMsiteXsg()
-    console.log('getFlashSaleIndexVO',result);
+   // console.log('getFlashSaleIndexVO',result);
     if(result.code===0){
       const flashSaleIndexVO=result.data
       dispatch(receive_flashsaleindexvo(flashSaleIndexVO))
@@ -134,12 +134,77 @@ const receive_catelist=(cateList)=>({type:RECEIVE_CATELIST,data:cateList})
 export const getcateList=()=>{
   return async dispatch=>{
     const result= await reqMsiteJH()
-    console.log('getcateList',result);
+  //  console.log('getcateList',result);
     if(result.code===0){
       const cateList=result.data
       dispatch(receive_catelist(cateList))
 
     }
+  }
+}
+
+const receive_banner=(banner)=>({type:RECEIVE_BANNER,data:banner})
+export const getBanner=()=>{
+  return async dispatch=>{
+    const  result=await reqRealB()
+    console.log('banner',result);
+    if(result.code===0){
+      const banner=result.data
+      dispatch(receive_banner(banner))
+
+    }
+  }
+}
+
+const receive_column=(column)=>({type:RECEIVE_COLUMN,data:column})
+export const getcolumn=()=>{
+  return async dispatch=>{
+    const result=await reqRealC()
+
+    if(result.code===0){
+      const column=result.data
+      dispatch(receive_column(column))
+
+    }
+  }
+}
+
+const receive_recommend=(recommend)=>({type:RECEIVE_RECOMMEND,data:recommend})
+export const getrecommend=()=>{
+  return async dispatch=>{
+    const result=await reqRealR()
+
+    if(result.code===0){
+      const recommend=result.data
+      dispatch(receive_recommend(recommend))
+
+    }
+  }
+}
+
+const receive_tenfifteens=(tenfifteen)=>({type:RECEIVE_TENFIFTEENS,data:tenfifteen})
+export const gettenfifteen=()=>{
+  return async dispatch=>{
+    const result=await reqRealS()
+
+    if(result.code===0){
+      const tenfifteen=result.data
+      dispatch(receive_tenfifteens(tenfifteen))
+    }
+  }
+}
+
+
+const receive_categorys =(categoryData)=>({type:RECEIVE_CATEGORYS,data:categoryData})
+export const getcategoryData=()=>{
+  return async dispatch=>{
+    const result=await reqCategoryData()
+    console.log('getcategoryData',result);
+    if(result.code===0){
+       const categoryData=result.data
+      dispatch(receive_categorys(categoryData))
+
+   }
   }
 }
 //vue中

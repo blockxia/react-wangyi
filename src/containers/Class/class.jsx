@@ -1,9 +1,15 @@
 import React,{Component} from 'react'
 import Cate from '../../components/Cate/cate'
 import ClassNav from '../../components/ClassNav/classnav'
+import {connect} from 'react-redux'
+import {getcategoryData} from '../../redux/actions'
 import './class.less'
 class Class extends Component{
+  componentDidMount(){
+    this.props.getcategoryData('categoryData')
+  }
     render(){
+    const {categoryData}=this.props
         return(
             <div className='cate'>
               <div className="cate_header_wrapper">
@@ -15,12 +21,15 @@ class Class extends Component{
                 </div>
               </div>
               <div className="bottom">
-             <ClassNav/>
-             <Cate/>
+             <ClassNav categoryData={categoryData}/>
+             <Cate categoryData={categoryData}/>
           </div>
          </div>
         )
     }
 }
 
- export default Class
+ export default connect(
+   state=>({categoryData:state.categoryData}),
+   {getcategoryData}
+ )(Class)

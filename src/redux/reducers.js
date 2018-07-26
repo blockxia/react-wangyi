@@ -106,8 +106,57 @@ function cateList(state=initcateList,action) {
   }else{
     return state
   }
-
 }
+
+const initbanner=[]
+function banner(state=initbanner,action) {
+  if(action.type===RECEIVE_BANNER){
+    return action.data
+
+  }else{
+    return state
+  }
+}
+
+const initcolumn=[]//初始值
+function column(state=initcolumn,action) {
+  if(action.type===RECEIVE_COLUMN){//判断action.type的类型
+    return action.data
+  }else{
+    return state
+  }
+}
+
+
+const initrecommend=[]
+function recommend(state=initrecommend,action) {
+  if(action.type===RECEIVE_RECOMMEND){
+    return action.data
+  }else{
+    return state
+  }
+}
+
+
+const inittenfifteen=[]
+function tenfifteen(state=inittenfifteen,action) {
+  if(action.type===RECEIVE_TENFIFTEENS){
+    return action.data
+  }else{
+    return state
+  }
+}
+
+const initcategoryData=[]
+function categoryData(state=initcategoryData,action) {
+  if(action.type===RECEIVE_CATEGORYS){
+    return action.data
+  }else{
+    return state
+  }
+}
+
+
 //整合多个reducer函数
 export default combineReducers({
   headCateList,
@@ -118,7 +167,12 @@ export default combineReducers({
   popularItemList,
   flashSaleIndexVO,
   topicList,
-  cateList
+  cateList,
+  banner,
+  column,
+  recommend,
+  tenfifteen,
+  categoryData
 })
 /*export default {
   [RECEIVE_HEADCATELIST](state,{headCateList}){

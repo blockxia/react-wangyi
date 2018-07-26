@@ -16,45 +16,9 @@ import Shopping from '../Shopping/shopping'
 
 
  class Main extends Component{
-   /*navList=[
-     {
-       path:'/firstscreen',
-       component:FirstScreen
-     },
-     {
-       path:'/msite',
-       component:Msite
-     },
-     {
-       path:'/recommend',
-       component:Recommend
-     },
-     {
-       path:'/real',
-       component:RealGoods
-     },
-     {
-       path:'/class',
-       component:Class
-     },
-     {
-       path:'/person',
-       component:Person
-     },
-     {
-       path:'/shopping',
-       component:Shopping
-     },
-    /!* {
-       path:'/register',
-       component:Register
-     }*!/
-   ]*/
 
     render(){
-      //const navList=this.navList
       const path=this.props.location.pathname
-      //const currentNav=navList.find(nav=>nav.path===path)
         return(
             <div>
              {/* <HeaderTop/>*/}
