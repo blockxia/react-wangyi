@@ -1,7 +1,7 @@
 export const RECEIVE_HEADCATELIST='receive_headcatelist'//接收頭部分類
 export const RECEIVE_FOCUSLIST='receive_focuslist'//接收轮播分类
 export const RECEIVE_POLICYDESCLIST='receive_policydesclist'//接收描述
-export const RECEIVE_TAGLIST='receive_taglist'//接收描述
+export const RECEIVE_TAGLIST='receive_taglist'//接收品牌直供
 export const RECEIVE_NEWITEMLIST='receive_newitemlist'//接收新品
 export const RECEIVE_POPULARITEMLISTS='receive_popularitemlists'//接收人气推荐
 export const RECEIVE_FLASHSALEINDEXVO='receive_flashsaleindexvo'//接收限时购

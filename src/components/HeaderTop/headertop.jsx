@@ -30,6 +30,7 @@ import './headertop.less'
         if(!headCateList){
           headCateList = [];
         }
+      //console.log(this.props.headCateList);
         return(
           <div className="header_wrapper">
             <div className="large_header">

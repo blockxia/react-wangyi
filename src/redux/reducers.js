@@ -51,10 +51,74 @@ function policyDescList(state=initpolicyDescList,action) {
     return state
   }
 }
+
+const initTaglist=[]//初始化数据为空数组
+function taglist(state=initTaglist,action) {
+  if(action.type===RECEIVE_TAGLIST){
+    return action.data
+  }else{
+    return state
+  }
+}
+
+const initNewItemList=[]
+function newItemList(state=initNewItemList,action) {
+  if(action.type===RECEIVE_NEWITEMLIST){
+    return action.data
+  }else{
+    return state
+  }
+}
+
+const initPopularItemList=[]
+function popularItemList(state=initPopularItemList,action) {
+  if(action.type===RECEIVE_POPULARITEMLISTS) {
+    return action.data
+  }else{
+    return state
+  }
+}
+const initflashSaleIndexVO=[]
+function flashSaleIndexVO(state=initflashSaleIndexVO,action) {
+  if(action.type===RECEIVE_FLASHSALEINDEXVO){
+    return action.data
+  }else{
+    return state
+  }
+}
+
+const inittopicList=[]
+function topicList(state=inittopicList,action) {
+  if(action.type===RECEIVE_TOPICLIST){
+    return action.data
+  }else{
+    return state
+  }
+}
+
+
+
+const initcateList=[]
+function cateList(state=initcateList,action) {
+  if(action.type===RECEIVE_CATELIST){
+    return action.data
+
+  }else{
+    return state
+  }
+
+}
+//整合多个reducer函数
 export default combineReducers({
   headCateList,
   focusList,
-  policyDescList
+  policyDescList,
+  taglist,
+  newItemList,
+  popularItemList,
+  flashSaleIndexVO,
+  topicList,
+  cateList
 })
 /*export default {
   [RECEIVE_HEADCATELIST](state,{headCateList}){

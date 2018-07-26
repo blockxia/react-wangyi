@@ -35,7 +35,7 @@ const receive_headcatelist=(headCateList)=>({type:RECEIVE_HEADCATELIST,data:head
 export const  getHeadCateList=()=> {
   return  async dispatch=>{
     const result=await reqMsite()
-    console.log(result);
+   // console.log(result);
     if(result.code===0){
       const headCateList=result.data
       dispatch(receive_headcatelist(headCateList))
@@ -47,7 +47,7 @@ const receive_focuslist=(focuslist)=>({type:RECEIVE_FOCUSLIST,data:focuslist})
 export const getFocuslist=()=>{
   return async dispatch=>{
     const result=await reqMsiteL()
-    console.log(result);
+   // console.log(result);
     if(result.code===0){
       const focuslist=result.data
       dispatch(receive_focuslist(focuslist))
@@ -59,7 +59,7 @@ const receive_policydesclist=(policyDescList)=>({type:RECEIVE_POLICYDESCLIST,dat
 export const getPolicydesclist=()=>{
   return async dispatch=>{
     const result=await reqMsiteD()
-    console.log(result);
+    //console.log(result);
     if(result.code===0){
       const policyDescList=result.data
       dispatch(receive_policydesclist(policyDescList))
@@ -67,9 +67,81 @@ export const getPolicydesclist=()=>{
   }
 }
 
+const receive_taglist=(taglist)=>({type:RECEIVE_TAGLIST,data:taglist})
+export const getTaglist=()=>{
+  return async dispatch=>{
+    const result = await reqMsiteT()
+    //console.log(result);
+    if(result.code===0){
+      const taglist=result.data
+      dispatch(receive_taglist(taglist))
+    }
+  }
+}
+
+const receive_newitemlist=(newItemList)=>({type:RECEIVE_NEWITEMLIST,data:newItemList})
+export const getNewitemlist=()=>{
+  return async dispatch=>{
+    const result = await reqMsiteNew()
+  //  console.log(result);
+    if(result.code===0){
+      const newItemList=result.data
+      dispatch(receive_newitemlist(newItemList))
+
+    }
+  }
+}
+
+const receive_popularitemlists=(popularItemList)=>({type:RECEIVE_POPULARITEMLISTS,data:popularItemList})
+export const getPopularItemList=()=>{
+  return async dispatch=>{
+    const result=await reqMsiteHot()
+    console.log('getPopularItemList',result);
+    if(result.code===0){
+      const popularItemList=result.data
+      dispatch(receive_popularitemlists(popularItemList))
+    }
+  }
+}
+
+const receive_flashsaleindexvo=(flashSaleIndexVO)=>({type:RECEIVE_FLASHSALEINDEXVO,data:flashSaleIndexVO})
+export  const getFlashSaleIndexVO=()=>{
+  return async dispatch=>{
+    const result=await reqMsiteXsg()
+    console.log('getFlashSaleIndexVO',result);
+    if(result.code===0){
+      const flashSaleIndexVO=result.data
+      dispatch(receive_flashsaleindexvo(flashSaleIndexVO))
+    }
+  }
+}
 
 
+const receive_topiclist=(topicList)=>({type:RECEIVE_TOPICLIST,data:topicList})
+export const getTopicList=()=>{
+  return async  dispatch=>{
+    const result =await reqMsiteZT()
+   // console.log('getTopicList',result);
+    if(result.code===0){
+      const topicList=result.data
+      dispatch(receive_topiclist(topicList))
+    }
 
+  }
+}
+
+const receive_catelist=(cateList)=>({type:RECEIVE_CATELIST,data:cateList})
+export const getcateList=()=>{
+  return async dispatch=>{
+    const result= await reqMsiteJH()
+    console.log('getcateList',result);
+    if(result.code===0){
+      const cateList=result.data
+      dispatch(receive_catelist(cateList))
+
+    }
+  }
+}
 //vue中
 /*export default {
 

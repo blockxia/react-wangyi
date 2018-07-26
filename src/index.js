@@ -9,6 +9,7 @@ import './mock/mockServer'
 import Main from './containers/Main/main';
 import store from './redux/store'
 
+
 ReactDOM.render((
   <Provider store={store}>
     <HashRouter>
