@@ -1,0 +1,93 @@
+@import "../../assets/less/mixins";
+.shopping{
+
+  .header{
+    background: #fff;
+    width: 750/@rem;
+    height:88/@rem;
+    box-sizing: border-box;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    .left{
+      /*width: 550/@rem;
+      height:87/@rem;*/
+      font-size: 18px;
+    }
+    .right{
+      position: absolute;
+      right: 10/@rem;
+      top: 25/@rem;
+      width: 88/@rem;
+      height:87/@rem;
+      font-size: 14px;
+      color: #b4282d;
+    }
+  }
+  .content{
+    width: 750/@rem;
+    height:1246/@rem;
+    .ul_list{
+      .tip{
+        display: flex;
+        height: 72/@rem;
+        align-items: center;
+        background: #eee;
+        &>li{
+          flex: 1;
+          text-align: center;
+          line-height: 72/@rem;
+          .iconfont{
+            font-size: 10px;
+            color:#bbb
+          }
+          &>span{
+            font-size: 12px;
+            color: #7e8c8d;
+          }
+        }
+      }
+    }
+    .icon{
+      width: 750/@rem;
+      height:1174/@rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .up{
+        width: 750/@rem;
+        height:300/@rem;
+        text-align: center;
+        .icon_img{
+          width: 248/@rem;
+          height:248/@rem;
+          margin: 0 auto;
+          img{
+            width: 100%;
+            vertical-align: middle;
+          }
+        }
+        .title{
+          width: 750/@rem;
+          height:27/@rem;
+          font-size: 12px;
+          color: #7e8c8d;
+        }
+      }
+      .btn_red{
+        width: 480/@rem;
+        height:92/@rem;
+        background-color: #b4282d;
+        font-size: 16px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+  }
+}

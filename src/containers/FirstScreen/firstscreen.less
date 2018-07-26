@@ -1,0 +1,40 @@
+@import "../../assets/less/mixins";
+body{
+  background: #efeeec;
+  .first_wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .first_image{
+      //width:100%;
+      width:750/@rem;
+     height: 386/@rem;
+     //height: 51.5%;
+      &>img{
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+    .first_image_center{
+      //width: 100%;
+     width: 750/@rem;
+      height: 327/@rem;
+
+      //height: 43.6%;
+      &>img{
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+    .first_bottom{
+      background-image: url("./images/bottom.jpg");
+      background-size: 100% 100%;
+      width: 750/@rem;
+      height: 432/@rem;
+      &>img{
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+  }
+}

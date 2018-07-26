@@ -1,0 +1,59 @@
+@import "../../assets/less/mixins";
+.list{
+  width: 75%;
+  //   background: yellow;
+  height:100%;
+  box-sizing: border-box;
+  padding: 30/@rem;
+  overflow: hidden;
+  .list_wrapper{
+    height: 90%;
+    overflow: hidden;
+    .list_slide{
+      height: 1215/@rem;
+      .list_cover{
+        height:192/@rem;
+        img{
+          width: 100%;
+          vertical-align: middle;
+        }
+      }
+      .list_title{
+        height:108/@rem;
+        text-align: center;
+        line-height:108/@rem;
+        font-size: 12px;
+        color: #7e8c8d;
+      }
+      .list_img{
+        width: 568/@rem;
+        height:864/@rem;
+        .list_img_ul{
+          width: 550/@rem;
+          height:864/@rem;
+          margin-top: -10px;
+          li{
+            width: 144/@rem;
+            height: 144/@rem;
+            float: left;
+            margin-top: 20px;
+            margin-left: 10px;
+            img{
+              width: 100%;
+              vertical-align: middle;
+            }
+            .img_name{
+              width: 144/@rem;
+              height: 72/@rem;
+              font-size: 12px;
+              text-align: center;
+              line-height:72/@rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+}

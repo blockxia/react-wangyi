@@ -1,0 +1,32 @@
+@import "../../assets/less/mixins";
+.footer_group{
+  .top-border-1px(#eee);
+  display:flex;
+  width: 100%;
+  height:98/@rem ;
+  background-color: #FAFAFA;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  & .iconfont{
+    font-size: 22px;
+  }
+  .group_item{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    margin: 5px;
+    color: #999999;
+    &.on{
+      color :#B4282D
+    }
+    span{
+      font-size :12px;
+      margin-bottom:2px;
+    }
+  }
+}
