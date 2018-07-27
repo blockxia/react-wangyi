@@ -10,6 +10,16 @@ import './headertop.less'
   state = {
      targetIndex:0
    }
+   componentWillMount(){
+      this.setState({
+        targetIndex: sessionStorage.getItem('INDEX')*1
+      }, () => {
+        console.log(this.refs.list.children, 'xxxxx');
+        window.requestAnimationFrame(this.updateClass)
+      })
+   }
+
+
    componentDidMount(){
      this.props.getHeadCateList()
    }
@@ -26,10 +36,13 @@ import './headertop.less'
    }
 
    goTj=()=>{
+
       this.props.history.replace('/recommend')
+     sessionStorage.setItem('INDEX', 0);
       this.setState({
        targetIndex:0
      }, () => {
+
         this.updateClass();
       })
     }
@@ -42,22 +55,31 @@ import './headertop.less'
     }*/
     change=(url,targetIndex)=>{
       this.props.history.replace(url)
-      console.log(targetIndex);
+      sessionStorage.setItem('INDEX', targetIndex);
       this.setState({
         targetIndex:targetIndex
       }, () => {
         this.updateClass();
+
       })
     }
 
     updateClass = () => {
       let lis=this.refs.list.children;
-      lis=Array.from(lis)
+      if(lis.length <=1){
+        window.requestAnimationFrame(this.updateClass);
+      }
+
+      console.log(lis, '再次测试', this.state.targetIndex);
+      lis=Array.from(lis);
+      console.log(lis);
       lis.forEach((item, index) => {
-        item.className=''
-        item.className='slide_item '
+        console.log(item, index);
+        item.className='';
+        item.className='slide_item';
         if(index===this.state.targetIndex){
-          item.className='slide_item active'
+          item.className='slide_item active';
+          
         }
       })
     }

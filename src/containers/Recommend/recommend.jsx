@@ -21,6 +21,7 @@ import {
 } from '../../redux/actions'
  class Recommend extends Component{
 
+
    componentDidMount(){
        this.props.getHeadCateList('headCateList')
        this.props.getFocuslist('focuslist')

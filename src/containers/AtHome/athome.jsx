@@ -5,8 +5,13 @@ import {connect} from 'react-redux'
 import {getcateList} from '../../redux/actions'
 import './athome.less'
  class Athome extends Component{
+
+
   componentDidMount(){
     this.props.getcateList()
+  }
+  componentWillUnmount(){
+    // sessionStorage.removeItem('INDEX')
   }
     render(){
       let id=this.props.match.params.id*1
