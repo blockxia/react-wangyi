@@ -10,7 +10,7 @@ class Shopping extends Component{
                 <span className="name" >购物车</span>
               </div>
               <div className="right">
-                <span onClick={()=>this.props.history.replace('/profile')} >
+                <span onClick={()=>this.props.history.replace('/person')} >
                 领券
               </span>
             </div>
@@ -41,7 +41,7 @@ class Shopping extends Component{
               <span>去添加点什么吧</span>
             </div>
           </div>
-          <div className="btn_red" onClick={()=>this.props.history.push('/profile')}>
+          <div className="btn_red" onClick={()=>this.props.history.push('/person')}>
           <div >登录</div>
         </div>
       </div>

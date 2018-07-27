@@ -36,23 +36,15 @@ import './headertop.less'
    }
 
    goTj=()=>{
-
       this.props.history.replace('/recommend')
      sessionStorage.setItem('INDEX', 0);
       this.setState({
        targetIndex:0
      }, () => {
-
         this.updateClass();
       })
     }
-  /* goto=()=>{
-      this.props.history.replace('/recommend')
-    }*/
-   /* componentWillMount(){
-     console.log(this.props.location.pathname);
-     console.log(this.refs);
-    }*/
+
     change=(url,targetIndex)=>{
       this.props.history.replace(url)
       sessionStorage.setItem('INDEX', targetIndex);
@@ -60,7 +52,6 @@ import './headertop.less'
         targetIndex:targetIndex
       }, () => {
         this.updateClass();
-
       })
     }
 
@@ -69,17 +60,15 @@ import './headertop.less'
       if(lis.length <=1){
         window.requestAnimationFrame(this.updateClass);
       }
-
-      console.log(lis, '再次测试', this.state.targetIndex);
+     // console.log(lis, '再次测试', this.state.targetIndex);
       lis=Array.from(lis);
       console.log(lis);
       lis.forEach((item, index) => {
-        console.log(item, index);
+      //  console.log(item, index);
         item.className='';
         item.className='slide_item';
         if(index===this.state.targetIndex){
           item.className='slide_item active';
-          
         }
       })
     }
@@ -88,7 +77,6 @@ import './headertop.less'
         if(!headCateList){
           headCateList = [];
         }
-     // console.log('1111',this.props.headCateList);
         return(
           <div className="header_wrapper">
             <div className="large_header">

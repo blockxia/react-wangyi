@@ -12,13 +12,19 @@ import Recommend from '../Recommend/recommend'
 import Footer from '../../components/Footer/footer'
 import Shopping from '../Shopping/shopping'
 import HeaderTop from '../../components/HeaderTop/headertop'
+import Login from '../Login/login'
+import PhoneLogin from '../PhoneLogin/phonelogin'
 
  class Main extends Component{
     render(){
       const path=this.props.location.pathname
         return(
             <div>
-              {path!=='/firstscreen'&&path!=='/person'&&path!=='/'&&path!=='/msite'&&path!=='/recommend'&&path!=='/real'&&path!=='/class'&&path!=='/shopping'? <HeaderTop /> :''}
+              {path!=='/firstscreen'&&
+              path!=='/person'&&
+              path!=='/login'&&
+              path!=='/phonelogin'&&
+              path!=='/'&&path!=='/msite'&&path!=='/recommend'&&path!=='/real'&&path!=='/class'&&path!=='/shopping'? <HeaderTop /> :''}
               <Switch>
                 <Route path='/firstscreen' component={FirstScreen}/>
                 <Route path='/msite' component={Msite}/>
@@ -28,11 +34,12 @@ import HeaderTop from '../../components/HeaderTop/headertop'
                 <Route path='/class' component={Class}/>
                 <Route path='/person' component={Person}/>
                 <Route path='/shopping' component={Shopping}/>
-
+                <Route path='/login' component={Login}/>
+                <Route path='/phonelogin' component={PhoneLogin}/>
                 <Route component={FirstScreen}/>
                {/* <Route path='/register' component={Register}/>*/}
               </Switch>
-              {path==='/firstscreen'||path==='/person'||path==='/'?  '':<Footer />}
+              {path==='/firstscreen'||path==='/person'||path==='/'||path==='/login'||path==='/phonelogin'?  '':<Footer />}
             </div>
         )
     }

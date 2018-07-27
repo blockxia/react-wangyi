@@ -10,14 +10,14 @@ class Person extends Component{
             <i className="iconfont icon-shouye" onClick={()=>this.props.history.replace('/recommend')}></i>
             </span>
             <span className="img">
-              <img src={a} alt="" onClick={()=>this.props.history.replace('/msite')}/>
+              <img src={a} alt="" onClick={()=>this.props.history.replace('/person')}/>
             </span>
             <span className="shoubu search">
               <i className="iconfont icon-search"></i>
             </span>
             <span className="shoubu shop">
                <i className="iconfont icon-tubiaolunkuo-"
-                  onClick={()=>this.props.history.replace('/msite')}></i>
+                  onClick={()=>this.props.history.replace('/person')}></i>
             </span>
     </div>
       <div className="content">
