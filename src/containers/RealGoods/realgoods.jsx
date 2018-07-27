@@ -28,7 +28,7 @@ import Swiper from 'swiper'
        })
      }
 
-//单例对象可以实现不重复创建，加判断
+    //单例对象可以实现不重复创建，加判断
      if (!this.swiperId2) {
        this.swiperId2 = new Swiper('.swiper2', {
          //loop: true,

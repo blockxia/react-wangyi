@@ -8,25 +8,29 @@ import './classnav.less'
   static propTypes={
     categoryData:PropTypes.array.isRequired
   }
-   goNav=(index)=>{
-     PubSub.subscribe('navData',(msg,data)=> {
-       //保存传过来的data里的index到Index
-       this.Index = data
+  state={
+    currentIndex:0
+  }
+   goNav=(obj)=>{
+     const {path,index}=obj
+     this.props.location.pathname===path
+     this.setState({
+       currentIndex:index
+     }, () => {
+       PubSub.publish('navData',this.state.currentIndex)
      })
    }
     render(){
-   const currentIndex=0
     const {categoryData} =this.props
-    console.log('categoryData222',this.props);
         return(
           <div className="class_nav">
             <div className="nav">
               <ul className="nav_list">
                 {
                   categoryData.map((item,index)=>(
-                    <li className={`nav_list_li ${currentIndex===index? 'on' : ''}`}
-                        key={index} ref={index}
-                        onClick={this.goNav(index)}
+                    <li className={`nav_list_li ${index===this.state.currentIndex? 'on' : ''}`}
+                        key={index}
+                        onClick={()=>this.goNav({path:'/class',index})}
                     >
                       {item.name}</li>
                   ))

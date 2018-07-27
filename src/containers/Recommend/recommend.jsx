@@ -93,6 +93,27 @@ import {
 
 
    }
+
+  /* componentWillReceiveProps(newprop){
+     if(newprop.flashSaleIndexVO.remainTime===old){
+       return
+     }
+     let old=this.props.flashSaleIndexVO.remainTime
+     let time=this.props.flashSaleIndexVO.remainTime
+     if(this.props.flashSaleIndexVO.remainTime&&time>=1000){
+       this.timer=setInterval(()=>{
+         if(time>=0){
+           time-=1000
+           this.setState({
+             time
+           })
+         }else{
+           clearInterval(this.timer)
+         }
+       },1000)
+
+     }
+   }*/
     render(){
       //限时购倒计时时间
      let time=moment.duration(this.props.flashSaleIndexVO.remainTime)

@@ -1,36 +1,36 @@
 import React,{Component} from 'react'
 import Logo from './images/logo.png'
-import PropTypes from 'prop-types'
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {getHeadCateList} from '../../redux/actions'
 //import BScroll from 'better-scroll'
 import './headertop.less'
  class HeaderTop extends Component{
-  static propTypes={
-    headCateList:PropTypes.array.isRequired
-  }
+
   state = {
      targetIndex:0
    }
 
-   /*componentDidMount(){
-     this.props.getHeadCateList('headCateList')
-   }*/
+   componentDidMount(){
+     this.props.getHeadCateList()
+   }
 
    goto=()=>{
-      this.props.history.push('/recommend')
+      this.props.history.replace('/recommend')
      console.log(this.props)
     }
-    change=(targetIndex)=>{
+    change=(url,targetIndex)=>{
+      this.props.history.replace(url)
         this.setState({
           targetIndex:targetIndex
-        })
+        },)
     }
     render(){
         let {headCateList} = this.props;
         if(!headCateList){
           headCateList = [];
         }
-      //console.log(this.props.headCateList);
+     // console.log('1111',this.props.headCateList);
         return(
           <div className="header_wrapper">
             <div className="large_header">
@@ -51,7 +51,8 @@ import './headertop.less'
                     {
 
                        headCateList.map((headCate,index)=>(
-                         <li className={`slide_item ${index===this.state.targetIndex? 'active':null}`} key={index} ref={index} onClick={(val)=>this.change(index)}>
+                         <li className={`slide_item ${index===this.state.targetIndex? 'active':null}`}
+                             key={index} ref={index} onClick={(val)=>this.change(`/athome/${headCate.id}`,index)}>
                            {headCate.name}
                          </li>
                        ))
@@ -65,4 +66,7 @@ import './headertop.less'
     }
 }
 
-export default withRouter(HeaderTop)
+export default connect(
+  state=>({headCateList:state.headCateList}),
+  {getHeadCateList}
+)(withRouter(HeaderTop))
