@@ -3,6 +3,7 @@ import React,{Component} from 'react'
 import {withRouter} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import PubSub from 'pubsub-js'
+import BScroll from 'better-scroll'
 import './classnav.less'
  class ClassNav extends Component{
   static propTypes={
@@ -19,6 +20,18 @@ import './classnav.less'
      }, () => {
        PubSub.publish('navData',this.state.currentIndex)
      })
+   }
+
+
+   componentDidUpdate() {
+     //单例对象可以实现不重复创建，加判断
+     if(!this.scrollId){
+       this.scrollId=new BScroll('.nav',{
+         probeType: 2,
+         scrollY:true,
+         click: true,
+       })
+     }
    }
     render(){
     const {categoryData} =this.props

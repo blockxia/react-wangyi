@@ -18,17 +18,17 @@ import HeaderTop from '../../components/HeaderTop/headertop'
       const path=this.props.location.pathname
         return(
             <div>
-             {/* <HeaderTop/>*/}
               {path!=='/firstscreen'&&path!=='/person'&&path!=='/'&&path!=='/msite'&&path!=='/recommend'&&path!=='/real'&&path!=='/class'&&path!=='/shopping'? <HeaderTop /> :''}
               <Switch>
                 <Route path='/firstscreen' component={FirstScreen}/>
                 <Route path='/msite' component={Msite}/>
                 <Route path='/recommend' component={Recommend}/>
+                <Route path='/athome/:id' component={AtHome}/>
                 <Route path='/real' component={RealGoods}/>
                 <Route path='/class' component={Class}/>
                 <Route path='/person' component={Person}/>
                 <Route path='/shopping' component={Shopping}/>
-                <Route path='/athome/:id' component={AtHome}/>
+
                 <Route component={FirstScreen}/>
                {/* <Route path='/register' component={Register}/>*/}
               </Switch>

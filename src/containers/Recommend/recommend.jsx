@@ -347,8 +347,6 @@ export default connect(
     flashSaleIndexVO:state.flashSaleIndexVO,
     topicList:state.topicList,
     cateList:state.cateList,
-
-
   }),
   {getHeadCateList,
     getFocuslist,

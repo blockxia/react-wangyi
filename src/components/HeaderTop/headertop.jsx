@@ -3,27 +3,63 @@ import Logo from './images/logo.png'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getHeadCateList} from '../../redux/actions'
-//import BScroll from 'better-scroll'
+import BScroll from 'better-scroll'
 import './headertop.less'
  class HeaderTop extends Component{
 
   state = {
      targetIndex:0
    }
-
    componentDidMount(){
      this.props.getHeadCateList()
    }
+   componentDidUpdate() {
+     //单例对象可以实现不重复创建，加判断
+     if(!this.scrollId){
+       this.scrollId=new BScroll('.nav_wrapper',{
+         probeType: 2,
+         scrollX:true,
+         click: true,
+         eventPassthrough:'vertical'
+       })
+     }
+   }
 
-   goto=()=>{
+   goTj=()=>{
       this.props.history.replace('/recommend')
-     console.log(this.props)
+      this.setState({
+       targetIndex:0
+     }, () => {
+        this.updateClass();
+      })
     }
+  /* goto=()=>{
+      this.props.history.replace('/recommend')
+    }*/
+   /* componentWillMount(){
+     console.log(this.props.location.pathname);
+     console.log(this.refs);
+    }*/
     change=(url,targetIndex)=>{
       this.props.history.replace(url)
-        this.setState({
-          targetIndex:targetIndex
-        },)
+      console.log(targetIndex);
+      this.setState({
+        targetIndex:targetIndex
+      }, () => {
+        this.updateClass();
+      })
+    }
+
+    updateClass = () => {
+      let lis=this.refs.list.children;
+      lis=Array.from(lis)
+      lis.forEach((item, index) => {
+        item.className=''
+        item.className='slide_item '
+        if(index===this.state.targetIndex){
+          item.className='slide_item active'
+        }
+      })
     }
     render(){
         let {headCateList} = this.props;
@@ -43,21 +79,17 @@ import './headertop.less'
                   <span className="placeholder">搜索商品, 共10718款好物</span>
                 </div>
               </div>
-              <div className="nav_wrapper" ref="nav">
-                <ul className="slide_nav">
-                  <li className={`slide_item ${this.props.location.pathname==='/recommend'? 'active':''}`}
-                      onClick={()=>this.props.history.replace('/recommend')} >推荐</li>
-
+              <div className="nav_wrapper">
+                <ul ref='list' className="slide_nav">
+                  <li className={`slide_item ${(this.props.location.pathname.length===10)? 'active':''}`}
+                      onClick={this.goTj} >推荐</li>
                     {
-
                        headCateList.map((headCate,index)=>(
-                         <li className={`slide_item ${index===this.state.targetIndex? 'active':null}`}
-                             key={index} ref={index} onClick={(val)=>this.change(`/athome/${headCate.id}`,index)}>
+                         <li key={index}   onClick={()=>this.change(`/athome/${headCate.id}`,index+1)}>
                            {headCate.name}
                          </li>
                        ))
                     }
-
             </ul>
           </div>
       </div>

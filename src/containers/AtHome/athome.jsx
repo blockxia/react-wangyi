@@ -1,10 +1,9 @@
 import React,{Component} from 'react'
-import b from './images/logo.png'
+//import b from './images/logo.png'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getcateList} from '../../redux/actions'
 import './athome.less'
- //v-show="index==Index"  v-for="(cate,index) in headCateList"
  class Athome extends Component{
   componentDidMount(){
     this.props.getcateList()
@@ -55,7 +54,6 @@ import './athome.less'
                       </li>
                     ))
                   }
-
                 </ul>
               </div>
             </div>

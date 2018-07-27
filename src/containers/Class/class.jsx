@@ -3,11 +3,13 @@ import Cate from '../../components/Cate/cate'
 import ClassNav from '../../components/ClassNav/classnav'
 import {connect} from 'react-redux'
 import {getcategoryData} from '../../redux/actions'
+
 import './class.less'
 class Class extends Component{
   componentDidMount(){
     this.props.getcategoryData('categoryData')
   }
+
     render(){
     const {categoryData}=this.props
         return(
