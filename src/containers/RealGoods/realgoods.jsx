@@ -13,30 +13,45 @@ import Swiper from 'swiper'
       this.props.getcategoryData('categoryData')
     }
    componentDidUpdate() {
+      //避免多次创建，销毁他
+      if(this.swiperId){
+        this.swiperId.destroy()
+      }
+     this.swiperId = new Swiper('.swiper0', {
+       loop: true,
+       slidesPerView: 'auto'
+     })
      //单例对象可以实现不重复创建，加判断
-     if (!this.swiperId) {
+  /*   if (!this.swiperId) {
        this.swiperId = new Swiper('.swiper0', {
          loop: true,
          slidesPerView: 'auto'
        })
+     }*/
+
+     if(this.swiperId1){
+       this.swiperId1.destroy()
      }
      //单例对象可以实现不重复创建，加判断
-     if (!this.swiperId1) {
+
        this.swiperId1 = new Swiper('.swiper1', {
          //loop: true,
          slidesPerView: 'auto',
          //可以停到任意位置
          freeMode:true
        })
-     }
 
+
+
+     if(this.swiperId2){
+       this.swiperId2.destroy()
+     }
     //单例对象可以实现不重复创建，加判断
-     if (!this.swiperId2) {
        this.swiperId2 = new Swiper('.swiper2', {
          //loop: true,
          slidesPerView: 1
        })
-     }
+
    }
     render(){
       let {banner,column,recommend,tenfifteen}=this.props

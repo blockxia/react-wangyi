@@ -20,8 +20,9 @@ import {
   getcateList
 } from '../../redux/actions'
  class Recommend extends Component{
-
-
+  state={
+    time:0
+  }
    componentDidMount(){
        this.props.getHeadCateList('headCateList')
        this.props.getFocuslist('focuslist')
@@ -44,8 +45,6 @@ import {
          topicList:this.props.topicList,
          cateList:this.props.cateList,
        })
-
-
   }
    componentDidUpdate(){
      //单例对象可以实现不重复创建，加判断
@@ -95,7 +94,7 @@ import {
 
    }
 
-  /* componentWillReceiveProps(newprop){
+   componentWillReceiveProps(newprop){
      if(newprop.flashSaleIndexVO.remainTime===old){
        return
      }
@@ -112,21 +111,15 @@ import {
            clearInterval(this.timer)
          }
        },1000)
-
      }
-   }*/
+   }
     render(){
       //限时购倒计时时间
-     let time=moment.duration(this.props.flashSaleIndexVO.remainTime)
-    //  console.log(time);
-
-
+      const {hours, minutes, seconds} = moment.duration(this.state.time)._data
     let {focuslist,newItemList,flashSaleIndexVO,topicList,cateList}=this.props
     if(!focuslist) focuslist = []
     if (!newItemList) newItemList=[]
     if (!cateList) cateList=[]
-   // console.log(newItemList);
-     // console.log('1111',this.props.cateList);
         return(
           <div className="msite_content">
             <HeaderTop headCateList={this.props.headCateList}/>
@@ -259,11 +252,11 @@ import {
             <span>严选限时购</span>
           </div>
           <div className=" Countdown_time">
-            <span className="hour" >{time._data.hours}</span>
+            <span className="hour" >{hours}</span>
             <span className="black">:</span>
-            <span className="min" >{time._data.minutes}</span>
+            <span className="min" >{minutes}</span>
             <span className="black">:</span>
-            <span className="second" >{time._data.seconds}</span>
+            <span className="second" >{seconds}</span>
           </div>
           <div className="predict_time">
             <span className="up_time">下一场</span>

@@ -15,13 +15,13 @@ import './athome.less'
   }
     render(){
       let id=this.props.match.params.id*1
+      let headCate=cateList.find((item,index)=>{
+        return item.id===id
+      })
       let {cateList}=this.props
       if(!cateList){
         cateList=[]
       }
-      let headCate=cateList.find((item,index)=>{
-        return item.id===id
-      })
       if(!headCate){
         headCate={}
       }

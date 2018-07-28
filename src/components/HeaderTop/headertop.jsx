@@ -44,7 +44,6 @@ import './headertop.less'
         this.updateClass();
       })
     }
-
     change=(url,targetIndex)=>{
       this.props.history.replace(url)
       sessionStorage.setItem('INDEX', targetIndex);
@@ -54,7 +53,6 @@ import './headertop.less'
         this.updateClass();
       })
     }
-
     updateClass = () => {
       let lis=this.refs.list.children;
       if(lis.length <=1){
