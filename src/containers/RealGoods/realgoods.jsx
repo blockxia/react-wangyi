@@ -25,6 +25,8 @@ import Swiper from 'swiper'
        this.swiperId1 = new Swiper('.swiper1', {
          //loop: true,
          slidesPerView: 'auto',
+         //可以停到任意位置
+         freeMode:true
        })
      }
 

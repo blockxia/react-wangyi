@@ -2,7 +2,17 @@ import React,{Component} from 'react'
 import {withRouter} from 'react-router-dom'
 import './login.less'
  class Login extends Component{
-
+   sendCode=()=>{
+    let emil=this.refs.emil.value
+    let pwd=this.refs.pwd.value
+     if(!/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/.test(emil)){
+       alert('请输入正确的邮箱')
+     }else if(!this.isEmil || !pwd){
+       alert('您输入的邮箱或密码错误！')
+     }else{
+       alert('登陆成功')
+     }
+   }
     render(){
         return(
           <div className="login_wrapper">
@@ -29,10 +39,10 @@ import './login.less'
         <div className="center">
           <div className="btn_wrap">
             <div className="input_emil">
-              <input type="text"  className="emil_phone" placeholder="邮箱账号" ref='emil'/>
+              <input type="text" maxLength={12} className="emil_phone" placeholder="邮箱账号" ref='emil'/>
             </div>
             <div className="input_pwd">
-              <input type="password"  className="emil_pwd" placeholder="密码" ref="pwd"/>
+              <input type="password" maxLength={8} className="emil_pwd" placeholder="密码" ref="pwd"/>
             </div>
             <div className="register_phone">
               <div className="text" onClick={()=>this.props.history.replace('/register')} >
@@ -42,7 +52,7 @@ import './login.less'
               <span className="register">忘记密码</span>
             </div>
           </div>
-          <div className="btn_phone"  onClick={()=>this.sendCode}>
+          <div className="btn_phone"  onClick={this.sendCode}>
           <span>登录</span>
         </div>
         <div className="btn_emil" onClick={()=>this.props.history.replace('/phonelogin')}>
