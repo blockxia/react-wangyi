@@ -1,7 +1,7 @@
+
+//应用界面放入多个路由，管理多个路由
 import React,{Component} from 'react'
 import {Switch,Route}  from 'react-router-dom'
-
-
 import FirstScreen from '../FirstScreen/firstscreen'
 import Msite from '../Msite/msite'
 import RealGoods from '../RealGoods/realgoods'
