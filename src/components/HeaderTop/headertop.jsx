@@ -59,6 +59,7 @@ import './headertop.less'
         window.requestAnimationFrame(this.updateClass);
       }
      // console.log(lis, '再次测试', this.state.targetIndex);
+     //  得到的每一个lis是伪数组,把他转换为真数组
       lis=Array.from(lis);
       console.log(lis);
       lis.forEach((item, index) => {
