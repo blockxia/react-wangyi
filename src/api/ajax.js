@@ -2,6 +2,8 @@ import axios from 'axios'
 const baseUrl=''
 
 // const baseUrl = 'http://localhost:4000'
+
+
 export default  function ajax(url,data={},type='GET') {
   return new Promise(function (reslove,reject) {
     let promise
